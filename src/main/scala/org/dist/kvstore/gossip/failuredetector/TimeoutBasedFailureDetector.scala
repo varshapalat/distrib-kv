@@ -43,7 +43,7 @@ abstract class FailureDetector[T] extends Logging {
 
 class TimeoutBasedFailureDetector[T] extends FailureDetector[T] {
   val serverHeartBeatReceived = new util.HashMap[T, Long]
-  val timeOutNanos = concurrent.TimeUnit.MILLISECONDS.toNanos(100)
+  val timeOutNanos = concurrent.TimeUnit.MILLISECONDS.toNanos(1)
 
   override def heartBeatReceived(serverId: T): Unit = {
     this.synchronized {
